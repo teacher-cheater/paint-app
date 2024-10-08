@@ -1,0 +1,29 @@
+.toolbar{
+    /*position: relative;*/
+    display: flex;
+    justify-content: center;
+    padding: 8px 12px;
+    height: 22px;
+}
+
+.label {
+    position: relative;
+    cursor: pointer;
+}
+
+.label svg {
+    position: absolute;
+    transition: scale 0.3s ease-out 0s;
+}
+
+.label svg:hover {
+    transform: scale(1.1);
+}
+
+.input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}

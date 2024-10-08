@@ -58,7 +58,6 @@ const Canvas: FC = ({brushColor}) => {
             onMouseUp={endDraw}
             onMouseLeave={endDraw}
         >
-
         </canvas>
     );
 };
