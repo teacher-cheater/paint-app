@@ -1,10 +1,11 @@
-import './App.css'
+import './styles/App.css'
+import Canvas from "./Canvas/Canvas.tsx";
 
 function App() {
 
     return (
         <div className="app">
-            123
+            <Canvas/>
         </div>
     )
 }
