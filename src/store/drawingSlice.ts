@@ -3,12 +3,14 @@ import type {PayloadAction} from '@reduxjs/toolkit'
 
 export interface drawState {
     isDrawing: boolean,
+    externalDraw: boolean;
     lastX: number,
     lastY: number
 }
 
 const initialState: drawState = {
     isDrawing: false,
+    externalDraw: false,
     lastX: 0,
     lastY: 0
 }
@@ -35,6 +37,9 @@ export const drawingSlice = createSlice({
             state.lastX = 0;
             state.lastY = 0;
         },
+        toggleExternalDraw: (state) => {
+            state.externalDraw = !state.externalDraw;
+        },
     },
 })
 
@@ -42,7 +47,8 @@ export const {
     setIsDrawing,
     startDrawing,
     drawing,
-    stopDrawing
+    stopDrawing,
+    toggleExternalDraw
 } = drawingSlice.actions
 
 export default drawingSlice.reducer

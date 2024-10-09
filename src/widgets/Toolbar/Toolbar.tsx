@@ -1,9 +1,24 @@
 import cls from './Toolbar.module.css';
+import {FC} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {startDrawing, toggleExternalDraw} from "../../store/drawingSlice.ts";
+import {selectedTool} from "../../store/toolSlice.ts";
+import {RootState} from "../../store/store.ts";
 
-const Toolbar = ({setBrushColor}) => {
+const Toolbar: FC = ({setBrushColor}) => {
+    const dispatch = useDispatch();
+    // const selectTool = useSelector((state: RootState) => console.log(state));
+
+    const handleStartDrawing = (tool) => {
+        // dispatch(startDrawing({ x: 0, y: 0 }));
+        console.log('tool:', tool)
+        dispatch(toggleExternalDraw());
+        dispatch(selectedTool(tool))
+    };
+
     return (
         <div className={cls.toolbar}>
-            <button className={cls.btn}>
+            <button className={cls.btn} onClick={() => handleStartDrawing('line')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="lucide lucide-brush">
@@ -13,7 +28,7 @@ const Toolbar = ({setBrushColor}) => {
                 </svg>
             </button>
 
-            <button className={cls.btn}>
+            <button className={cls.btn} onClick={() => handleStartDrawing('square')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="lucide lucide-square">
@@ -21,7 +36,7 @@ const Toolbar = ({setBrushColor}) => {
                 </svg>
             </button>
 
-            <button className={cls.btn}>
+            <button className={cls.btn} onClick={() => handleStartDrawing('circle')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="lucide lucide-circle">
@@ -29,7 +44,7 @@ const Toolbar = ({setBrushColor}) => {
                 </svg>
             </button>
 
-            <button className={cls.btn}>
+            <button className={cls.btn} onClick={() => handleStartDrawing('eraser')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="lucide lucide-eraser">
@@ -55,7 +70,7 @@ const Toolbar = ({setBrushColor}) => {
                 </label>
             </button>
 
-            <button className={cls.btn}>
+            <button className={cls.btn} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                      className="lucide lucide-undo-2">

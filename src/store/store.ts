@@ -4,6 +4,7 @@ import startDrawing from '../store/drawingSlice.ts';
 import setIsDrawing from '../store/drawingSlice.ts';
 import drawing from '../store/drawingSlice.ts';
 import stopDrawing from '../store/drawingSlice.ts';
+import toolSlice from "./toolSlice.ts";
 
 
 export const store = configureStore({
@@ -12,7 +13,8 @@ export const store = configureStore({
         startDrawing: startDrawing,
         setIsDrawing: setIsDrawing,
         drawing: drawing,
-        stopDrawing: stopDrawing
+        stopDrawing: stopDrawing,
+        toolSlice: toolSlice
     },
 })
 
